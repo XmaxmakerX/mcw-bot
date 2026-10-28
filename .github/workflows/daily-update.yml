@@ -24,34 +24,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install pywikibot requests
 
-      - name: Create family file
-        run: |
-          cat > rumcw_family.py << 'EOF'
-          from pywikibot import family
-
-          class Family(family.Family):
-              name = 'rumcw'
-              langs = {
-                  'ru': 'ru.minecraft.wiki',
-              }
-
-              def scriptpath(self, code):
-                  return ''
-
-              def protocol(self, code):
-                  return 'HTTPS'
-          EOF
-
       - name: Copy family file to pywikibot package
         run: |
-          python -c "import pywikibot, os, shutil; pkg_dir = os.path.dirname(pywikibot.__file__); shutil.copy('rumcw_family.py', os.path.join(pkg_dir, 'families', 'rumcw_family.py'))"
+          python -c "import pywikibot, os, shutil; pkg_dir = os.path.dirname(pywikibot.__file__); shutil.copy('mcw_family.py', os.path.join(pkg_dir, 'families', 'mcw_family.py'))"
 
       - name: Create user-config.py
         run: |
           cat > user-config.py << 'EOF'
-          family = 'rumcw'
+          family = 'mcw'
           mylang = 'ru'
-          usernames['rumcw']['ru'] = 'XmaxmakerXBot'
+          usernames['mcw']['ru'] = 'XmaxmakerXBot'
           password_file = "user-password.py"
           EOF
 
