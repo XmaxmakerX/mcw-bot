@@ -42,6 +42,10 @@ jobs:
                   return 'HTTPS'
           EOF
 
+      - name: Copy family file to pywikibot package
+        run: |
+          python -c "import pywikibot, os, shutil; pkg_dir = os.path.dirname(pywikibot.__file__); shutil.copy('rumcw_family.py', os.path.join(pkg_dir, 'families', 'rumcw_family.py'))"
+
       - name: Create user-config.py
         run: |
           cat > user-config.py << 'EOF'
@@ -49,8 +53,6 @@ jobs:
           mylang = 'ru'
           usernames['rumcw']['ru'] = 'XmaxmakerXBot'
           password_file = "user-password.py"
-
-          register_families_folder('rumcw', 'rumcw_family.py')
           EOF
 
       - name: Create user-password.py
