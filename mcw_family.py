@@ -12,3 +12,11 @@ class Family(family.Family):
 
     def protocol(self, code):
         return 'https'
+
+    edit_restricted_templates = {
+        'ru': ('Переработка', 'рвп'),
+    }
+
+    doc_subpages = {
+        'ru': ('/док',),
+    }
