@@ -1,0 +1,30 @@
+name: Daily MCW Components Update
+
+on:
+  schedule:
+    # Запуск каждый день в 00:00 по мск
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pywikibot requests
+
+      - name: Run update script
+        env:
+          PYWIKIBOT_PASSWORD: ${{ secrets.PYWIKIBOT_PASSWORD }}
+        run: python update_components.py
