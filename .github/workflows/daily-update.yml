@@ -2,9 +2,9 @@ name: Daily MCW Components Update
 
 on:
   schedule:
-    # Запуск каждый день в 03:00 UTC (06:00 по Москве)
-    - cron: '0 3 * * *'
-  workflow_dispatch: # Позволяет запустить вручную для теста
+        # 00:00 по Москве = 21:00 UTC предыдущего дня
+    - cron: '0 21 * * *'
+  workflow_dispatch:
 
 jobs:
   update:
@@ -45,4 +45,4 @@ jobs:
           chmod 600 user-password.py
 
       - name: Run update script
-        run: python update_components.py
+        run: python scripts/update_components.py
