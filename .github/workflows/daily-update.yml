@@ -50,7 +50,7 @@ jobs:
           usernames['rumcw']['ru'] = 'XmaxmakerXBot'
           password_file = "user-password.py"
 
-          register_family_file('rumcw', 'rumcw_family.py')
+          register_families_folder('rumcw', 'rumcw_family.py')
           EOF
 
       - name: Create user-password.py
