@@ -24,6 +24,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install pywikibot requests
 
+      - name: Create family file
+        run: |
+          cat > rumcw_family.py << 'EOF'
+          from pywikibot import family
+
+          class Family(family.Family):
+              name = 'rumcw'
+              langs = {
+                  'ru': 'ru.minecraft.wiki',
+              }
+
+              def scriptpath(self, code):
+                  return ''
+
+              def protocol(self, code):
+                  return 'HTTPS'
+          EOF
+
       - name: Create user-config.py
         run: |
           cat > user-config.py << 'EOF'
