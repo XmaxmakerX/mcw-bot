@@ -51,7 +51,7 @@ except Exception as e:
 summary = f"Обновление в соответствии с {commit_message} ({commit_sha})"
 
 # Подключение к вики
-site = pywikibot.Site()
+site = pywikibot.Site(code='ru', fam='mcw')
 page = pywikibot.Page(site, PAGE_TITLE)
 
 # Форматирование нового JSON для записи
