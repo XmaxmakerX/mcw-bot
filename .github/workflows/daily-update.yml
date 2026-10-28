@@ -1,10 +1,10 @@
-name: Daily MCW Updates
+name: Daily MCW Components Update
 
 on:
   schedule:
-    # Запуск каждый день в 00:00 по мск
-    - cron: '0 21 * * *'
-  workflow_dispatch:
+    # Запуск каждый день в 03:00 UTC (06:00 по Москве)
+    - cron: '0 3 * * *'
+  workflow_dispatch: # Позволяет запустить вручную для теста
 
 jobs:
   update:
@@ -49,6 +49,8 @@ jobs:
           mylang = 'ru'
           usernames['rumcw']['ru'] = 'XmaxmakerXBot'
           password_file = "user-password.py"
+
+          register_family_file('rumcw', 'rumcw_family.py')
           EOF
 
       - name: Create user-password.py
@@ -59,6 +61,4 @@ jobs:
           chmod 600 user-password.py
 
       - name: Run update script
-        env:
-          PYWIKIBOT_PASSWORD: ${{ secrets.PYWIKIBOT_PASSWORD }}
         run: python update_components.py
