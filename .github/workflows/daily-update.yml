@@ -1,4 +1,4 @@
-name: Daily MCW Components Update
+name: Daily MCW Updates
 
 on:
   schedule:
