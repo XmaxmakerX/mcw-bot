@@ -8,7 +8,7 @@
 
 - Обновление [данных компонентов предметов по умолчанию](https://ru.minecraft.wiki/Module:Компоненты_предмета_по_умолчанию/data.json) на основе [item_components/data.json](https://github.com/misode/mcmeta/blob/summary/item_components/data.json) в [misode/mcmeta](https://github.com/misode/mcmeta).
 
-Запуск бота происходит каждый день в 00:00 по МСК.
+Запуск бота происходит каждый день в 23:00 по МСК.
 
 ## Технологии
 
