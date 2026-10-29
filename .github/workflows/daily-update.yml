@@ -2,8 +2,8 @@ name: Daily MCW Components Update
 
 on:
   schedule:
-        # 00:00 по Москве = 21:00 UTC предыдущего дня
-    - cron: '0 21 * * *'
+        # 23:00 по Москве = 2p:00 UTC предыдущего дня
+    - cron: '0 20 * * *'
   workflow_dispatch:
 
 jobs:
